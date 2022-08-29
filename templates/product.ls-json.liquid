@@ -1,0 +1,7 @@
+{% include 'product-content.zipifypages', contentprt: 'header' %}{%- layout none -%}
+
+{%- comment -%}
+    Create localized product response
+{%- endcomment -%}
+
+{%- render "ls-product-json", product: product -%}{% include 'product-content.zipifypages', contentprt: 'footer' %}

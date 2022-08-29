@@ -1,0 +1,94 @@
+<style>
+
+  /*! CSS Used from: Embedded */
+  @media (min-width: 337px) and (max-width: 555px){
+    .cert-images img{height:4rem!important;}
+  }
+  /*! CSS Used from: https://cdn.shopify.com/s/files/1/0080/2127/8786/t/27/assets/theme.min.css?v=6851845576419391272 ; media=all */
+  @media all{
+    *,::after,::before{box-sizing:border-box;}
+    img{max-width:100%;border:0;}
+    ::-webkit-input-placeholder{color:#292a2b;opacity:0.6;}
+    ::-moz-placeholder{color:#292a2b;opacity:0.6;}
+    :-ms-input-placeholder{color:#292a2b;opacity:0.6;}
+    ::-ms-input-placeholder{color:#292a2b;opacity:1;}
+  }
+  /*! CSS Used from: https://cdn.shopify.com/s/files/1/0080/2127/8786/t/27/assets/skstyles.css?v=12548683899920712817 */
+  .certificates{display:flex;justify-content:center;align-content:center;flex-wrap:wrap;margin-top:100px;}
+  .flex-break{flex-basis:100%;height:0;}
+  .cert-heading{font-size:2.2em;font-weight:600;color:#292a2b;margin-bottom:50px;}
+  .cert-images img{height:8rem;width:auto;}
+  @media (max-width: 476px){
+    .cert-images img{height:6rem;width:auto;}
+  }
+  
+  @media (max-width:769px){
+    #MainContent {
+      margin-top: 2rem;
+    }
+  }
+  .h1, h1 {
+    font-size: 2em;
+    color: #545557;
+  }
+  {% if template contains 'collection' %}
+  .index-section {
+    padding-top: 0px !important;
+  }
+  .section-header { margin-bottom: 0px !important; }
+  {% endif %}
+</style>
+{% include 'shogun-products', content: collection %}
+{{collection.metafields.shogun.above}}
+
+{% if collection.url contains 'frontpage' %}
+
+<div class="section-header text-center">
+  <h1>
+    <span role="text">
+      <span class="visually-hidden"><ls-static-788197>Collection:</ls-static-788197> </span>
+      <ls-static-880612>Top products for your Jawline training</ls-static-880612>
+    </span>
+  </h1>
+  <div class="rte">
+    <a href="https://jawliner.de/#quiz-BZHrQV"><ls-static-512572>Help me choose&nbsp;my JAWLINER</ls-static-512572></a>
+    <div class="shogun-root" data-shogun-id="5df2811ebafd09005f093f80" data-shogun-site-id="947da881-a73f-47e2-aa76-52aac5bfab36" data-shogun-page-id="5df2811ebafd09005f093f80" data-shogun-page-version-id="5df2811ebafd09005f093f7f" data-shogun-platform-type="shopify" data-shogun-variant-id="5df2811ebafd09005f093f83" data-region="main">
+      <div id="s-b64d6cd0-84c7-4d46-ac46-370e5ac108aa" class="shg-c">
+        <div class="shogun-root" data-shogun-id="5df27c44e4c42900509b2b9b" data-shogun-site-id="947da881-a73f-47e2-aa76-52aac5bfab36" data-shogun-page-id="5df27c44e4c42900509b2b9b" data-shogun-page-version-id="5df27c44e4c42900509b2b9a" data-shogun-platform-type="shopify" data-shogun-variant-id="5df27c44e4c42900509b2b9e" data-region="main">
+          <div id="s-56087945-7a04-47d0-9395-36b67a3a3e37" class="shg-c"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    {% section 'collection-template' %}
+    {% section 'collection-template2' %}
+    {% section 'collection-template3' %}
+    {% section 'collection-template4' %}
+
+{% else %}
+
+	{% section 'collection-template-defualt' %}
+
+{% endif %}
+
+{{collection.metafields.shogun.below}}
+
+    {% assign certificates = "Certificates" %}
+<center> 
+  <div class="certificates">
+    <div class="cert-heading">{{ certificates }}</div>
+    <div class="flex-break"></div>
+    <div class="cert-images">
+      <img src="https://cdn.shopify.com/s/files/1/0080/2127/8786/files/WhatsApp_Image_2020-05-24_at_23.18.35_160x160_2x_658bae5d-9509-4e35-99c0-6db2c92890b9_480x480.jpg?v=1609634061"
+           alt="" width="104" height="104">
+      <img src="https://cdn.shopify.com/s/files/1/0080/2127/8786/files/food_grade_safe_89263557-bf22-4693-a2fb-91544e39bdc8_480x480.jpg?v=1610903264"
+           alt="" width="104" height="104">
+      <img src="https://cdn.shopify.com/s/files/1/0080/2127/8786/files/logo_480x480.jpg?v=1610753751" alt="" width="163"
+           height="99">
+      <img src="https://cdn.shopify.com/s/files/1/0080/2127/8786/files/text-build_480x480.jpg?v=1610904453" alt=""
+           width="110" height="110">
+    </div>
+  </div> 
+</center> 

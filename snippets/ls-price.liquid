@@ -1,0 +1,18 @@
+
+{%- comment -%}
+    Deprecated snippet. Fallback to original money filter
+{%- endcomment -%}
+
+{%- capture output -%}
+    {%- if filter == "money_with_currency" -%}
+        {{ price | money_with_currency }}
+    {%- elsif filter == "money_without_currency" -%}
+        {{ price | money_without_currency }}
+    {%- elsif filter == "money_without_trailing_zeros" -%}
+        {{ price | money_without_trailing_zeros }}
+    {%- else -%}
+        {{ price | money }}
+    {%- endif -%}
+{%- endcapture -%}
+
+{{ output | strip_newlines }}

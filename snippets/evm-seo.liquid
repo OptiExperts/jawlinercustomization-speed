@@ -1,0 +1,148 @@
+<!-- ============================= SEO Expert Pro ============================= -->
+    <title>{% if template == "index" and shop.metafields.evmSEOMeta.title_homepage!="" %}{{shop.metafields.evmSEOMeta.title_homepage}}{% elsif collection.handle == "all" and shop.metafields.evmSEOMeta.title_collectionsAll!="" %} {{shop.metafields.evmSEOMeta.title_collectionsAll}}{% elsif template == "search"  and shop.metafields.evmSEOMeta.title_search!=""  %}{{shop.metafields.evmSEOMeta.title_search}}{% elsif template == "404" and shop.metafields.evmSEOMeta.title_404!="" %}{{shop.metafields.evmSEOMeta.title_404}}{% else %}{{ page_title }}{% endif %}</title>
+   	
+
+	{% if canonical_url contains "/es/" %}
+		{% assign default_description = "Der JAWLINER ist ein mewing Kaugummi um die Kiefermuskulatur zu trainieren Das Kiefermuskeltraining führt zu einer definierten und markanten Kieferlinie jawline" %}
+
+	{% elsif canonical_url contains "/de/" %}
+		{% assign default_description = "Der JAWLINER ist ein mewing Kaugummi um die Kiefermuskulatur zu trainieren Das Kiefermuskeltraining führt zu einer definierten und markanten Kieferlinie jawline" %}
+
+	{% elsif canonical_url contains "/th/" %}
+		{% assign default_description = "Jawliner คืออุปกรณ์ออกกำลังกายกล้ามเนื้อกรามเพื่อกระตุ้นการเจริญเติบโตของกล้ามเนื้อบริเวณสันกรามเพื่อกรอบหน้าที่ชัดเจนมากขึ้น Jawliner เป็นอุปรณ์ที่ทรงพลังอย่างมาก ที่ทำให้คอร์สการออกกำลังกล้ามเนื้อกรามของคุณมีประสิทธิภาพมากขึ้น" %}
+	{% else %}
+		{% assign default_description = "The JAWLINER® is a mewing workout gum to increase your jaw muscles to become an attractive jawline. It´s a powerful tool for regular jawline exercise sessions" %}
+	{% endif %}
+
+
+    {% if template == "index"  and shop.metafields.evmSEOMeta.description_homepage!="" %}
+        <meta name="description" content="{{shop.metafields.evmSEOMeta.description_homepage}}" />
+    {% elsif collection.handle == "all"  and shop.metafields.evmSEOMeta.description_collectionsAll!="" %}
+        <meta name="description" content="{{shop.metafields.evmSEOMeta.description_collectionsAll}}" />
+    {% elsif template == "search" and shop.metafields.evmSEOMeta.description_search!=""  %}
+        <meta name="description" content="{{shop.metafields.evmSEOMeta.description_search}}" />
+    {% elsif template == "404" and shop.metafields.evmSEOMeta.description_404!="" %}
+        <meta name="description" content="{{shop.metafields.evmSEOMeta.description_404}}" />
+    {% elsif page_description %}
+
+
+		{% if page_description != blank %}
+			<meta name="description" content="{{ page_description | escape }}" />
+		{% else %}
+			<meta name="description" content="{{ default_description | escape }}" />
+		{% endif %}
+
+		{% else %}
+			<meta name="description" content="{{ default_description | escape }}" />
+    {% endif %}
+
+
+
+    <meta http-equiv="cache-control" content="max-age=0" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="expires" content="0" />
+    <meta http-equiv="expires" content="Tue, 01 Jan 2000 1:00:00 GMT" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <script type="application/ld+json">
+    {
+    "@context": "http://schema.org",
+    "@type": "Organization",
+    "name": "{{ shop.name }}",
+    "url": "https://{{ shop.domain }}"    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "WebSite",
+        "url": "https://{{ shop.domain }}",
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://{{ shop.domain }}/search?q={query}",
+            "query-input": "required name=query"
+            }
+    }
+    </script>
+    
+    {% if template contains "collection" %}
+    <script type="application/ld+json">
+        [
+            {
+                "@context" : "http://schema.org",
+                "@type": "CollectionPage",
+                "name": "{{ collection.title}}",
+                "url": "{{ shop.url | append: collection.url }}",
+                  "image": "{% comment ls-rpl %}{{ collection.image | img_url: "master" }}{% endcomment %}{%- capture LS_IMG_URL -%}{%- render "ls-img-url", image: collection.image, img_url: "master" -%}{%- endcapture -%}{{ LS_IMG_URL }}{% comment /ls-rpl %}{% endcomment %}"
+            }{% if collection.products != empty %},{% endif %}
+            {% for product in collection.products %}
+            {
+                "@context" : "http://schema.org",
+                "@type" : "Product",
+                "name" : "{{ product.title | strip_newlines | strip_html | escape_once | replace: "\", "\\\\\\\\" }}",
+                "image": "{% comment ls-rpl %}{{ product.featured_image.src | img_url: "master" | prepend : "https:" }}{% endcomment %}{%- capture LS_IMG_URL -%}{%- render "ls-img-url", image: product.featured_image.src, img_url: "master" -%}{%- endcapture -%}{{ LS_IMG_URL | prepend : "https:" }}{% comment /ls-rpl %}{% endcomment %}",
+                "url" : "{{ shop.url | append: "/products/" | append: product.handle }}",
+                "offers" : {
+                    "@type" : "Offer",
+                    "price" : {% comment ls-rpl %}{{ product.price | money_without_currency | split: "" | reverse | join: "" | remove_first: "00." | split: "" | reverse | join: "" | replace: ",", "" }}{% endcomment %}{%- assign LS_AMOUNT = product.price -%}{%- capture LS_PRICE -%}{%- render "ls-price", price: LS_AMOUNT, filter: "money_without_currency" -%}{%- endcapture -%}{{ LS_PRICE | split: "" | reverse | join: "" | remove_first: "00." | split: "" | reverse | join: "" | replace: ",", "" }}{% comment /ls-rpl %}{% endcomment %},
+                    "priceCurrency" : "{{ shop.currency }}"
+                }
+            }{% unless forloop.last %}, {% endunless %}
+            {% endfor %}
+        ]
+    </script>
+    {% endif %}
+    {% if template contains "product" %}
+    <script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "Product",
+        "brand": {
+            "@type": "Brand",
+            "name": {{ product.vendor | json }}
+        },
+        "sku": {{ product.selected_or_first_available_variant.sku | json }},
+        "description": {{ product.description | strip_html | json }},
+        "url":{{ canonical_url | json }},
+        "name": {{ product.title | json }},
+        {%- if product.featured_image -%}
+        "image": "{% comment ls-rpl %}{{ product.featured_image | product_img_url: "grande" | prepend : "https:"}}{% endcomment %}{%- capture LS_IMG_URL -%}{%- render "ls-img-url", image: product.featured_image, img_url: "grande" -%}{%- endcapture -%}{{ LS_IMG_URL | prepend : "https:"}}{% comment /ls-rpl %}{% endcomment %}",
+        {%- endif -%}
+        "offers": {
+            "@type": "Offer",
+            "price": {% comment ls-rpl %}{{ product.selected_or_first_available_variant.price | money_without_currency | remove: "," }}{% endcomment %}{%- assign LS_AMOUNT = product.selected_or_first_available_variant.price -%}{%- capture LS_PRICE -%}{%- render "ls-price", price: LS_AMOUNT, filter: "money_without_currency" -%}{%- endcapture -%}{{ LS_PRICE | remove: "," }}{% comment /ls-rpl %}{% endcomment %},
+            "priceCurrency": "{{ shop.currency }}",
+            "availability": "{%- if product.selected_or_first_available_variant.available -%}InStock{%- else -%}OutOfStock{%- endif -%}",
+            "itemCondition": "http://schema.org/NewCondition"
+        }
+        
+        {%- assign review_rating = false -%}
+        {% if product.metafields.spr.reviews %}
+        {% capture review_data %}{{ product.metafields.spr.reviews }}{% endcapture %}
+
+        {%- assign rating_keyword = '"ratingValue":' -%}
+        {%- assign rd_a1 = review_data | split: rating_keyword -%}
+        {%- assign rd_a2 = rd_a1[1] | split: "," -%}
+        {%- assign rd_a3 = rd_a2[0] | replace: '"', "" -%}
+        {%- assign review_rating = rd_a3 | plus: 1 | minus: 1 -%}
+
+
+        {%- assign count_keyword = '"reviewCount":' -%}
+        {%- assign rd_a1 = review_data | split: count_keyword -%}
+        {%- assign rd_a2 = rd_a1[1] | split: "," -%}
+        {%- assign rd_a3 = rd_a2[0] | replace: '"', "" -%}
+        {%- assign review_count = rd_a3 | plus: 1 | minus: 1 -%}
+        {% endif %}
+
+
+        
+        {%- if review_rating %}
+            ,"aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": "{{ review_rating }}",
+                "reviewCount": "{{ review_count }}"
+            }
+        {%- endif %}
+       
+    }
+        </script>
+        {% endif %} 
+

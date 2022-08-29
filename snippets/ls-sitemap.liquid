@@ -1,0 +1,14 @@
+{%- comment -%}
+    Show sitemap tag
+{%- endcomment -%}
+
+{%- assign disableSitemap = shop.metafields.ls-settings.disableSitemap -%}
+{%- assign sitemapPath = "/apps/langshop/sitemap.xml" -%}
+{%- assign protocolPart = canonical_url | split: '://' | first | append: '://' -%}
+{%- assign domainPart = canonical_url | split: '://' | last | split: '/' | first -%}
+
+{%- unless disableSitemap == "true" -%}
+    <!-- /snippets/ls-sitemap.liquid -->
+    <link rel="sitemap" type="application/xml" title="Sitemap"
+          href="{{ protocolPart }}{{ domainPart }}{{ sitemapPath }}">
+{%- endunless -%}
