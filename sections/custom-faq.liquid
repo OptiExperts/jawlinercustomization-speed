@@ -4,10 +4,10 @@
             {{block.settings.header}}
         </h3>
     {% else %}
-        <button class="accordion" id={{id}}>
+        <button class="accordion">
             {{block.settings.question}}
         </button>
-        <div class="penal">
+        <div class="panel">
             <p>
                 {{block.settings.answer}}
             </p>
@@ -67,11 +67,6 @@
 			"settings": [{
 					"type": "header",
 					"content": "Question Item"
-				},
-				{
-					"type": "number",
-					"id": "id",
-					"label": "id — integer"
 				},
 				{
 					"type": "text",
