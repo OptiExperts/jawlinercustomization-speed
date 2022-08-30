@@ -557,8 +557,9 @@
           "d319bf11-829b-4de6-b26b-72e5efb6d9ef": {
             "type": "slide",
             "settings": {
-              "question": "",
-              "answer": ""
+              "id": 3,
+              "question": "Question # 3",
+              "answer": "Answer # 3"
             }
           }
         },
