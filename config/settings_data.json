@@ -541,7 +541,7 @@
           "75a193e7-0116-43d9-b3b0-65bcc509cfd8": {
             "type": "slide",
             "settings": {
-              "id": 1,
+              "id": 0,
               "question": "Question #1",
               "answer": "Answer # 1"
             }
