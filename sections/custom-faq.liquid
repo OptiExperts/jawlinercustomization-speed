@@ -1,5 +1,5 @@
 <style>
-    .accordion {
+    .accordion-custom {
       background-color: #eee;
       color: #444;
       cursor: pointer;
@@ -12,7 +12,7 @@
       transition: 0.4s;
     }
     
-    .active, .accordion:hover {
+    .active, .accordion-custom:hover {
       background-color: #ccc;
     }
     
@@ -31,7 +31,7 @@
             {{block.settings.header}}
         </h3>
     {% else %}
-        <button class="accordion">
+        <button class="accordion-custom">
             {{block.settings.question}}
         </button>
         <div class="panel">
@@ -42,8 +42,24 @@
     {% endif %}
 {% endfor %}
 
+<button class="accordion-custom">Section 1</button>
+<div class="panel">
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+</div>
+
+<button class="accordion-custom">Section 2</button>
+<div class="panel">
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+</div>
+
+<button class="accordion-custom">Section 3</button>
+<div class="panel">
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+</div>
+
+
 <script>
-    var acc = document.getElementsByClassName("accordion");
+    var acc = document.getElementsByClassName("accordion-custom");
     var i;
     
     for (i = 0; i < acc.length; i++) {
