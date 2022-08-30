@@ -23,6 +23,19 @@
       overflow: hidden;
       transition: max-height 0.2s ease-out;
     }
+
+    .accordion-custom:after {
+        content: '\002B';
+        color: #777;
+        font-weight: bold;
+        float: right;
+        margin-left: 5px;
+    }
+
+    .active:after {
+        content: "\2212";
+    }
+
 </style>
 
 {% for block in section.blocks %}
