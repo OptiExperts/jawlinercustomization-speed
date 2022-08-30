@@ -541,7 +541,6 @@
           "75a193e7-0116-43d9-b3b0-65bcc509cfd8": {
             "type": "slide",
             "settings": {
-              "id": 0,
               "question": "Question #1",
               "answer": "Answer # 1"
             }
@@ -549,7 +548,6 @@
           "0d2ad9cf-b87a-43cb-a556-f0dc08271029": {
             "type": "slide",
             "settings": {
-              "id": 2,
               "question": "Question # 2",
               "answer": "Answer # 2"
             }
@@ -557,7 +555,6 @@
           "d319bf11-829b-4de6-b26b-72e5efb6d9ef": {
             "type": "slide",
             "settings": {
-              "id": 3,
               "question": "Question # 3",
               "answer": "Answer # 3"
             }
