@@ -57,11 +57,11 @@
 
 
 <script>
-    var acc = document.getElementsByClassName("accordion-custom");
+    var accc = document.getElementsByClassName("accordion-custom");
     var ij;
     
-    for (ij = 0; ij < acc.length; ij++) {
-      acc[ij].addEventListener("click", function() {
+    for (ij = 0; ij < accc.length; ij++) {
+      accc[ij].addEventListener("click", function() {
         this.classList.toggle("active");
         var panelcustom = this.nextElementSibling;
         if (panelcustom.style.maxHeight) {
