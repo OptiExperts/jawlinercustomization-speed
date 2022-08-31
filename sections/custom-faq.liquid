@@ -16,7 +16,7 @@
       background-color: #ccc;
     }
     
-    .panel-custom {
+    .panelcustom {
       padding: 0 18px;
       background-color: white;
       max-height: 0;
@@ -47,7 +47,7 @@
         <button class="accordion-custom">
             {{block.settings.question}}
         </button>
-        <div class="panel-custom">
+        <div class="panelcustom">
             <p>
                 {{block.settings.answer}}
             </p>
@@ -63,11 +63,11 @@
     for (i = 0; i < acc.length; i++) {
       acc[i].addEventListener("click", function() {
         this.classList.toggle("active");
-        var panel-custom = this.nextElementSibling;
-        if (panel-custom.style.maxHeight) {
-          panel-custom.style.maxHeight = null;
+        var panelcustom = this.nextElementSibling;
+        if (panelcustom.style.maxHeight) {
+          panelcustom.style.maxHeight = null;
         } else {
-          panel-custom.style.maxHeight = panel-custom.scrollHeight + "px";
+          panelcustom.style.maxHeight = panelcustom.scrollHeight + "px";
         } 
       });
     }
