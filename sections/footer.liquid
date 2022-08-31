@@ -162,7 +162,7 @@ or template.name == 'blog'
 
           {%- when 'text' -%}
           {%- if block.settings.text != blank -%}
-          <div class="panelcustom">
+          <div class="panel">
             <div class="site-footer__rte
                         {% if section.blocks.size == 1 %} site-footer__single-block--centered{% endif %}">
               {{ block.settings.text }}
@@ -172,7 +172,7 @@ or template.name == 'blog'
 
           {%- when 'link_list' -%}
           {%- assign footer_linklist = block.settings.menu -%}
-          <div id="penalId" class="panelcustom">
+          <div id="penalId" class="panel">
             <ul class="site-footer__linklist
                        {% if inline_list %}list--inline{% endif %}">
               {%- for link in linklists[footer_linklist].links -%}
@@ -609,7 +609,7 @@ or template.name == 'blog'
       content: "\2212";
     }
 
-    .panelcustom {
+    .panel {
       padding: 0 18px;
       max-height: 0;
       overflow: hidden;
@@ -638,11 +638,11 @@ or template.name == 'blog'
   for (i = 0; i < acc.length; i++) {
     acc[i].addEventListener("click", function() {
       this.classList.toggle("active");
-      var panelcustom = this.nextElementSibling;
-      if (panelcustom.style.maxHeight) {
-        panelcustom.style.maxHeight = null;
+      var panel = this.nextElementSibling;
+      if (panel.style.maxHeight) {
+        panel.style.maxHeight = null;
       } else {
-        panelcustom.style.maxHeight = panelcustom.scrollHeight + "px";
+        panel.style.maxHeight = panel.scrollHeight + "px";
       } 
     });
   }
