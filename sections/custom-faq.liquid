@@ -26,7 +26,7 @@
       outline: none;
       font-size: 16px;
       transition: 0.4s;
-      font-family: Arimo, sans-serif !important;
+      font-family: "Verdana Pro", sans-serif !important;
       font-weight: 600 !important;
       line-height: 19px !important;
     }
@@ -55,7 +55,7 @@
     .active:after {
         content: "\2212";
     }
-    .cus-faq {
+    #cus-faq {
       font-size: 14px !important;
       line-height: 21px !important;
       color: #61696f !important;
@@ -73,7 +73,7 @@
             {{block.settings.question}}
         </button>
         <div class="panelcustom">
-            <p class="cus-faq">
+            <p id="cus-faq">
                 {{block.settings.answer}}
             </p>
         </div>
