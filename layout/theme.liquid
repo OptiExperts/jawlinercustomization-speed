@@ -1007,9 +1007,9 @@
 
   {%- render '__footerhash' -%}
     
-  {% render 'oneclickupsellapp-theme', oneclickupsellapp: oneclickupsellapp %}
-  {% assign oneclickupsellapp = true %}
-  {% render 'page-footer.zipifypages', renderctx: 'thm', ocuapp: ocuapp %}
+      {% render 'page-footer.zipifypages', renderctx: 'thm', ocuapp: ocuapp %}
+{% render 'oneclickupsellapp-theme', oneclickupsellapp: oneclickupsellapp %}
+{% assign oneclickupsellapp = true %}
 </body>
 </html>
 {%- endcapture -%}
