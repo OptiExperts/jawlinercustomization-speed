@@ -1,6 +1,6 @@
 <style>
 .additional-checkout-buttons {
-  
+  display: none;
 }
 </style> 
 <div class="page-width" data-section-id="{{ section.id }}" data-section-type="cart-template">
@@ -222,7 +222,6 @@
             </div>
 
             {% if additional_checkout_buttons %}
-            <div>this is a test</div>
               <div class="additional-checkout-buttons">{{ content_for_additional_checkout_buttons }}</div>
             {% endif %}
           </div>
