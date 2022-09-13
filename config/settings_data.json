@@ -568,24 +568,6 @@
         ],
         "settings": {
         }
-      },
-      "1663089664b6f1adbf": {
-        "type": "custom-content",
-        "blocks": {
-          "bb2ee536-0799-428d-aeda-a50c4a42dcc6": {
-            "type": "html",
-            "settings": {
-              "code": "<div id=\"rq7acd8yvhqy2\" class=\"tolstoy-carousel\"><\/div>",
-              "width": "50%"
-            }
-          }
-        },
-        "block_order": [
-          "bb2ee536-0799-428d-aeda-a50c4a42dcc6"
-        ],
-        "settings": {
-          "title": ""
-        }
       }
     },
     "content_for_index": [
@@ -603,8 +585,7 @@
       "1554565558875",
       "1624971240a491eb44",
       "1559037978984",
-      "1661892767b3828a82",
-      "1663089664b6f1adbf"
+      "1661892767b3828a82"
     ],
     "blocks": {
       "10436698916776057164": {
