@@ -1,30 +1,4 @@
-{% comment %} you can always turn off the speedupkernel{% endcomment %}
-{%- assign speedupkernel = true -%}
-{%- assign is_admin_interface = false -%}
 
-{%- if speedupkernel -%} 
-{%- if request.host contains 'myshopify.com' -%}
-{%- assign is_admin_interface = true -%}
-{%- else -%}
-{%- assign is_admin_interface = false -%}
-{%- endif -%}
-
-{%- if request.host contains 'shopifypreview.com' -%}
-{%- assign is_admin_interface = false -%}
-{%- endif -%}
-
-{%- if request.host contains 'gempages.net' -%}
-{%- assign is_admin_interface = true -%}
-{%- endif -%}	
-
-{%- if request.path contains 'cart' -%}
-{%- assign is_admin_interface = true -%}
-{%- endif -%}
-
-{%- if request.path contains 'checkout' -%}
-{%- assign is_admin_interface = true -%}
-{%- endif -%}
-{%- endif -%}
 {%- capture LS_INPUT -%}<!doctype html>
 {% comment ls-rpl %}<html class="no-js" lang="{{ shop.locale }}">{% endcomment %}<html class="no-js" lang="{%- render "ls-language" -%}" dir="{%- render "ls-language-direction" -%}">{% comment /ls-rpl %}{% endcomment %}
 <head>
