@@ -215,7 +215,7 @@
             </span>
           </button>
           {% if section.settings.enable_payment_button %}
-          {{ form | payment_button }} 
+          {% comment %} {{ form | payment_button }} {% endcomment %}
           {% endif %}
           <a href="https://www.trustpilot.com/review/jawliner.de" target="_blank">
             <img src="https://cdn.shopify.com/s/files/1/0080/2127/8786/files/trust_pilot_3_2048x.png"/>
