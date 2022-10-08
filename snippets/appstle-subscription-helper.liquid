@@ -75,47 +75,47 @@ This snippet is auto generated and will be overwritten.
   <div class="appstle_sub_widget" id="appstle_subscription_widget{{widgetId}}">
 <div class="appstle_widget_title">{{{purchaseOptionsText}}}</div>
       <div class="widgetSellingPlanWrapper">
-{{^requires_selling_plan}}
-        <div class="appstle_input_wrapper">
-          <input type="radio" id="appstle_selling_plan_label_1{{widgetId}}" name="selling_plan" value="" class="appstleSellingPlan{{widgetId}}" checked/>
+       {{^requires_selling_plan}}
+        <div class="appstle_input_wrapper appstle_onetime">
+          <input type="radio" id="appstle_selling_plan_label_1{{widgetId}}" name="selling_plan" value="{{sellingPlanId}}" class="appstleSellingPlan{{widgetId}}" {{^subscriptionOptionSelectedDefault}}checked{{/subscriptionOptionSelectedDefault}}/>
           <label for="appstle_selling_plan_label_1{{widgetId}}">
             {{oneTimePuchaseText}}
-      <span  class="appstle_lowercase appstle_sellingPlan_price appstle_onetime_amount">{{{oneTimePuchaseAmount}}}/one time</span>
+      <span  class="appstle_lowercase appstle_sellingPlan_price appstle_onetime_amount">{{{oneTimePuchaseAmount}}}</span>
           </label>
           
         </div>
-{{/requires_selling_plan}}
+        {{/requires_selling_plan}}
         {{#sellingPlanVariants}}
-           <div class="appstle_input_wrapper">
-      <span class="appstle_sellingPlan_discountText">{{formattedDiscountText}}</span>
-             <input type="radio" class="appstleSellingPlan{{widgetId}}" id="{{sellingPlanId}}" value="{{sellingPlanId}}" name="selling_plan" />
-{{^prepaidFlag}}
+           <div class="appstle_input_wrapper appstle_subscription_option">
+             <input type="radio" class="appstleSellingPlan{{widgetId}}" id="{{sellingPlanId}}" value="{{sellingPlanId}}" name="selling_plan" {{#subscriptionOptionSelectedDefault}}checked{{/subscriptionOptionSelectedDefault}} />
+             {{^prepaidFlag}}
              <label for="{{sellingPlanId}}">
-                {{{name}}}
+                Every {{frequencyCount}} {{frequencyIntervalLowerCase}}{{#isFrequencySubsequent}}s{{/isFrequencySubsequent}}
 <div class="appstle_span_wrapper">
-        <span class="appstle_lowercase appstle_sellingPlan_price appstle_price_block">{{{formattedPrice}}}<span>
-<span class="appstle_lowercase appstle_sellingPlan_price appstle_formattext_block">/{{#isFrequencySubsequent}}{{frequencyCount}} {{/isFrequencySubsequent}}{{{frequencyInterval}}}{{#isFrequencySubsequent}}s{{/isFrequencySubsequent}}</span>
-</div>            
- </label>
-{{/prepaidFlag}}
-{{#prepaidFlag}}
-<label for="{{sellingPlanId}}">
-                {{{name}}}
+        <span class="appstle_lowercase appstle_sellingPlan_price appstle_price_block">{{{formattedPrice}}}</span>
+{{#showSecondFormattedDiscountText}}<span class="appstle_lowercase appstle_sellingPlan_price appstle_discount_block">&nbsp;({{{secondFormattedDiscountText}}})</span> {{/showSecondFormattedDiscountText}}
+</div>
+	
+             </label>
+        {{/prepaidFlag}}
+        {{#prepaidFlag}}
+             <label for="{{sellingPlanId}}">
+               {{{name}}}
 <div class="appstle_span_wrapper">
         <span class="appstle_lowercase appstle_sellingPlan_price appstle_price_block">{{{totalPrice}}}</span>
-<span class="appstle_lowercase appstle_sellingPlan_price appstle_formattext_block">/{{#isFrequencySubsequent}}{{frequencyCount}} {{/isFrequencySubsequent}}{{{frequencyInterval}}}{{#isFrequencySubsequent}}s{{/isFrequencySubsequent}}</span>
-</div>             
-</label>
-{{/prepaidFlag}}
+ {{#showSecondFormattedDiscountText}}<span class="appstle_lowercase appstle_sellingPlan_price appstle_discount_block">&nbsp;({{{secondFormattedDiscountText}}})</span>{{/showSecondFormattedDiscountText}}
+        </div>
+	
+             </label>
+        {{/prepaidFlag}}
       
            </div>
         {{/sellingPlanVariants}}
     </div>
 {{#showStaticTooltip}}
-<div class="appstle_tooltip_wrapper_static"> {{{toolTipDescription}}}</div>
+<div class="appstle_tooltip_wrapper_static">{{toolTipDescription}}</div>
 {{/showStaticTooltip}}
 {{^showStaticTooltip}}
-
     <div data-appstle-icon="" class="appstle_tooltip_wrapper">
     <svg width="90" height="90" viewBox="0 0 90 90" xmlns="http://www.w3.org/2000/svg" class="tooltip_subscription_svg">
     <path
@@ -123,7 +123,7 @@ This snippet is auto generated and will be overwritten.
     ></path>
     </svg>
     <span class="appstle_tooltip_title">{{{tooltipTitle}}}</span>
-    <div class="appstle_tooltip">
+    <div class="appstle_tooltip appstle_tooltip_hover">
     <div class="appstle_tooltip_content">
       {{{toolTipDescription}}}
     </div>
@@ -133,14 +133,12 @@ This snippet is auto generated and will be overwritten.
       </a>
     </div>
     </div>
-
   </div>
 {{/showStaticTooltip}}
-<style>
-.widgetSellingPlanWrapper {
+<style>.widgetSellingPlanWrapper {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1.5rem;
+    gap: 0.5rem;
     grid-auto-rows: 1fr;
     margin-bottom: 6px;
 }
@@ -150,23 +148,21 @@ This snippet is auto generated and will be overwritten.
 }
 
 .widgetSellingPlanWrapper label {
-    border-radius: 10px;
-    border: 1px solid #ff609d;
+    border-radius: 8px;
+    border: 1px solid #E60000;
     padding: 0.5rem;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 13px;
-    font-family: monospace;
     display: block;
     height: 100%;
     width: 100%;
-    font-weight: bolder;
     text-align: center;
 }
 
 .widgetSellingPlanWrapper input:checked+label {
-    background-color: #fff4f8;
+    background-color: #FCDFDF;
 }
 .appstle_lowercase {
     text-transform: lowercase;
@@ -179,7 +175,6 @@ This snippet is auto generated and will be overwritten.
 
 span.appstle_sellingPlan_discountText {
     position: absolute;
-    font-size: 8px;
     background-color: #724cf9;
     color: white;
     border-radius: 3px;
@@ -195,18 +190,20 @@ span.appstle_sellingPlan_discountText:empty {
 }
 
 span.appstle_lowercase.appstle_sellingPlan_price {
-    font-size: 10px;
+    font-size: 13px;
     font-weight: normal;
+	display: block;
+    color: red;
 }
 div.appstle_span_wrapper{
-	display: flex;
-	justify-content: center;
+display: flex;
+justify-content: center;
 }
 
 #appstle_subscription_widget0 .appstle_tooltip_wrapper {
-	font-family: monospace;
     font-size: 13px;
 }
+	
 </style>
 </div>
 {% endraw %}`,
