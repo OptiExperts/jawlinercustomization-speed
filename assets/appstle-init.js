@@ -70,7 +70,7 @@
         "oneTimePriceText" : "{{price}}",
         "selectedPayAsYouGoSellingPlanPriceText" : "{{price}}",
         "selectedPrepaidSellingPlanPriceText" : "{{pricePerDelivery}}",
-        "selectedDiscountFormat" : "SAVE {{selectedDiscountPercentage}}",
+        "selectedDiscountFormat" : "",
         "manageSubscriptionBtnFormat" : "<a href='apps\/subscriptions' class='appstle_manageSubBtn' ><button class='btn' style='padding: 2px 20px'>Manage Subscription<\/button><a><br><br>",
         "manageSubscriptionUrl" : "apps\/subscriptions",
         "appstlePlanId": 2,
