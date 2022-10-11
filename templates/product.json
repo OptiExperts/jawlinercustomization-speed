@@ -8,7 +8,7 @@
     "main": {
       "type": "product-template",
       "settings": {
-        "custom_liq": "{%- liquid\nif use_variant\n    assign target = product.selected_or_first_available_variant\nelse\n    assign target = product\nendif\n\nassign compare_at_price = target.compare_at_price\nassign price = target.price | default: 1999\n-%}\n\n{%- if compare_at_price > price %}\n<div>\n    <span>Lowest price in the last 30 days:<\/span>\n    <span id=\"priceref\"><\/span> EUR\n<\/div>\n{% endif -%}",
+        "custom_liq": "",
         "image_size": "medium",
         "show_quantity_selector": false,
         "show_variant_labels": true,
