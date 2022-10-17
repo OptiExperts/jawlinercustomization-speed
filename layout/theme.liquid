@@ -920,7 +920,7 @@
       {% render 'page-footer.zipifypages', renderctx: 'thm', ocuapp: ocuapp %}
 {% render 'oneclickupsellapp-theme', oneclickupsellapp: oneclickupsellapp %}
 {% assign oneclickupsellapp = true %}
-</body>
+{% include 'icart-drawer' %}</body>
 </html>
 {%- endcapture -%}
 {%- render "ls-output", input: LS_INPUT -%}
