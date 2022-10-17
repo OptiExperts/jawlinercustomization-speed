@@ -1,0 +1,37 @@
+{% if content_for_header contains 'front-icart.min.js' or content_for_header contains 'front-icart.js' %}
+{% assign icart_placeholder_png = "https://icart.identixweb.com/icart/icart_cdn/assets/img/placeholder.png" %}
+{% unless content_for_layout contains 'icartCommonScriptJs' %}
+<script type="text/javascript" id="icartCommonScriptJs">
+  var icartProductObj = {};
+  var icartNodeCallToken = eval({{ shop.metafields.icartCallToken | json }});
+  var icart_cart_arr = {{ cart | json }};
+  var icartScid = 'OGI4YjgxNmY5MzVlNTUxNGY5OWU0ZTljYWUyMTQ3YmUuNTZiMjU0MzNkMjdmMDMzYTBmMzcxOWZjYzE2NTk5OGI=';
+  var icartCurrencyWihoutFormat = "{{ shop.money_format | escape }}";
+  var [cart_prod_coll_id_arr, cart_prod_id_arr, cart_prod_wise_coll_id_arr, cart_prod_wise_tag_arr, icartLineItemData] = [[], [], [], [], {}];
+  {%- for item in cart.items -%}
+    icartLineItemData[{{item.id}}] = {{item.product | json}} {% if forloop.index != forloop.length %} , {% endif %}
+    cart_prod_id_arr.push('{{ item.product.id }}');
+  	cart_prod_wise_tag_arr[{{ forloop.index | minus: 1 }}] = {{ item.product.tags | json }};
+  	var icartCollectionIds = [];
+  	{% for collection in item.product.collections %}
+  	  icartCollectionIds.push('{{ collection.id }}');
+      cart_prod_coll_id_arr.push('{{ collection.id }}');
+  	{% endfor %}
+  	icartCollectionIds.length && cart_prod_wise_coll_id_arr.push(icartCollectionIds);
+  {%- endfor -%}
+</script>
+{% endunless  %}
+<script>
+    var productObj = {{ all_products["jawliner®-fitness-chewing-gum-try-package"] | json }};
+    typeof productObj == "object" ? icartProductObj[6880871317641] = productObj : "";
+</script>
+<style>icart-div{display: none;}</style>
+<div class="icartFullcartContain" style="display:none"></div>
+<script>
+function icartScriptLoad(e){return new Promise(function(t,n){let r=document.createElement("script");r.src=e,r.id="icartFullCartMinJs",r.type="text/javascript",r.onError=n,r.async=false,r.onload=t,r.addEventListener("error",n),r.addEventListener("load",t),document.getElementsByTagName("head")[0].appendChild(r)})}
+icartScriptLoad("https://cdnicart.identixweb.com/react_build/icart.bundle.js")
+.then(() => { document.getElementsByClassName("icartFullcartContain")[0].style.display="block"; })
+.catch(() => { document.getElementsByClassName("icartShopifyContain")[0].outerHTML = document.getElementsByClassName("icartShopifyContain")[0].outerHTML.replace(/icart-div/g,"div");document.getElementsByClassName("icartShopifyContain")[0].style.display="block"; });
+</script>
+<link rel="stylesheet" id="icartFullCartMinCss" type="text/css" href="https://cdnicart.identixweb.com/assets/css/icart-fronted-cart.min.css" media="all"> 
+{% endif %}
