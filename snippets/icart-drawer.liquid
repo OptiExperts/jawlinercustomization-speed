@@ -5,7 +5,7 @@
   var icartProductObj = {};
   var icartNodeCallToken = eval({{ shop.metafields.icartCallToken | json }});
   var icart_cart_arr = {{ cart | json }};
-  var icartScid = 'OGMzZjZlNGRlYTY1MjFmMzQyYTZmMDExNWZjZTBkMGIuZmQxMzE2ZmQ1MDc4YzYyODU4Y2Y5ODYyN2VmMjQ4YTc=';
+  var icartScid = 'MGU2NzMyYjQ5YTk4MDBjNmMwYmZjNzI4MWZhOTQ2N2EuMDE0YjczYzdhMGJkYmMzNDRiNDQ3OTk0MTI1MDk2ZDk=';
   var icartCurrencyWihoutFormat = "{{ shop.money_format | escape }}";
   var [cart_prod_coll_id_arr, cart_prod_id_arr, cart_prod_wise_coll_id_arr, cart_prod_wise_tag_arr, icartLineItemData] = [[], [], [], [], {}];
   {%- for item in cart.items -%}
@@ -24,10 +24,7 @@
 {% assign icart_page_type = "0" %}
 {% unless icart_page_type != '1' and request.page_type == "cart" %}
 <script id="icartSideCartMinJs" type="text/javascript" async="false" src="https://cdnicart.identixweb.com/react_build/icart.bundle.js"></script>
-<script>
-    var productObj = {{ all_products["jawliner®-fitness-chewing-gum-try-package"] | json }};
-    typeof productObj == "object" ? icartProductObj[6880871317641] = productObj : "";
-</script>
+
 <div class="icart icart-datepicker icart-slipper icart-curve"></div>
 <link rel="stylesheet" id="icartMinCss" type="text/css" href="https://cdnicart.identixweb.com/assets/css/icart_fronted.min.css" media="all">
 {% endunless %}
