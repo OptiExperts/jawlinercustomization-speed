@@ -5,7 +5,7 @@
   var icartProductObj = {};
   var icartNodeCallToken = eval({{ shop.metafields.icartCallToken | json }});
   var icart_cart_arr = {{ cart | json }};
-  var icartScid = 'ZGNiZjM5YzcxZThiY2RlYTU0Yzk1ZjdkNTQxZTMwZTQuY2JmMTRjNTE4MWM1M2UwOWE0ZWE0ZmM5MTAwMjhjZDQ=';
+  var icartScid = 'NTIyZWU1MjU5OWY1OWVhYWMwYThhOGY5YzBjY2NhYjAuN2M5NzY0YWM1N2E5MjA4MWM0OWU3MmU1ZDc1ZTM5MWQ=';
   var icartCurrencyWihoutFormat = "{{ shop.money_format | escape }}";
   var [cart_prod_coll_id_arr, cart_prod_id_arr, cart_prod_wise_coll_id_arr, cart_prod_wise_tag_arr, icartLineItemData] = [[], [], [], [], {}];
   {%- for item in cart.items -%}
