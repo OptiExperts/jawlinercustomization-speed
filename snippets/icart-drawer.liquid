@@ -5,7 +5,7 @@
   var icartProductObj = {};
   var icartNodeCallToken = eval({{ shop.metafields.icartCallToken | json }});
   var icart_cart_arr = {{ cart | json }};
-  var icartScid = 'NzhlNmI5MTZhYTRmYzQ2NWM0YzA3MmJhYzdkZjA0ODYuNWU1YWUwMTQ4NzQyMDA1MzgxNTkwOWMxNGI5NzY4NjE=';
+  var icartScid = 'NDY3OTU3YjE1N2E0YWIyMmRkMzU5YzlkMDM5MGIxZDMuMjczMzNhM2MzOTVkY2I1ZjY4NjJiYmIxOGJlZGE0MWY=';
   var icartCurrencyWihoutFormat = "{{ shop.money_format | escape }}";
   var [cart_prod_coll_id_arr, cart_prod_id_arr, cart_prod_wise_coll_id_arr, cart_prod_wise_tag_arr, icartLineItemData] = [[], [], [], [], {}];
   {%- for item in cart.items -%}
@@ -21,17 +21,14 @@
   {%- endfor -%}
 </script>
 {% endunless  %}
+{% assign icart_page_type = "2" %}
+{% unless icart_page_type != '1' and request.page_type == "cart" %}
+<script id="icartSideCartMinJs" type="text/javascript" async="false" src="https://cdnicart.identixweb.com/react_build/icart.bundle.js"></script>
 <script>
     var productObj = {{ all_products["jawliner®-fitness-chewing-gum-try-package"] | json }};
     typeof productObj == "object" ? icartProductObj[6880871317641] = productObj : "";
 </script>
-<style>icart-div{display: none;}</style>
-<div class="icartFullcartContain" style="display:none"></div>
-<script>
-function icartScriptLoad(e){return new Promise(function(t,n){let r=document.createElement("script");r.src=e,r.id="icartFullCartMinJs",r.type="text/javascript",r.onError=n,r.async=false,r.onload=t,r.addEventListener("error",n),r.addEventListener("load",t),document.getElementsByTagName("head")[0].appendChild(r)})}
-icartScriptLoad("https://cdnicart.identixweb.com/react_build/icart.bundle.js")
-.then(() => { document.getElementsByClassName("icartFullcartContain")[0].style.display="block"; })
-.catch(() => { document.getElementsByClassName("icartShopifyContain")[0].outerHTML = document.getElementsByClassName("icartShopifyContain")[0].outerHTML.replace(/icart-div/g,"div");document.getElementsByClassName("icartShopifyContain")[0].style.display="block"; });
-</script>
-<link rel="stylesheet" id="icartFullCartMinCss" type="text/css" href="https://cdnicart.identixweb.com/assets/css/icart-fronted-cart.min.css" media="all"> 
+<div class="icart icart-datepicker icart-slipper icart-curve"></div>
+<link rel="stylesheet" id="icartMinCss" type="text/css" href="https://cdnicart.identixweb.com/assets/css/icart_fronted.min.css" media="all">
+{% endunless %}
 {% endif %}
