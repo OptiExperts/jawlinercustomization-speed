@@ -5,7 +5,7 @@
   var icartProductObj = {};
   var icartNodeCallToken = eval({{ shop.metafields.icartCallToken | json }});
   var icart_cart_arr = {{ cart | json }};
-  var icartScid = 'ZmY5YmZhZmFkMmY1OWFiNTRkOGM0ZTdhM2IxNDVkMGYuZWJjYTg1NGJjNjEyZTVjMDc3MTdhYjljZWRiZDBmMDQ=';
+  var icartScid = 'YjdhN2UxZDg2MDlkZmU3ZmFhNWQ0Y2QyOTI3NzIwYmQuYjAzNTZmYjQ3YjVhYWU3NDYyYmI5YjM1ZjQ4NDI3MzU=';
   var icartCurrencyWihoutFormat = "{{ shop.money_format | escape }}";
   var [cart_prod_coll_id_arr, cart_prod_id_arr, cart_prod_wise_coll_id_arr, cart_prod_wise_tag_arr, icartLineItemData] = [[], [], [], [], {}];
   {%- for item in cart.items -%}
@@ -24,9 +24,7 @@
 <script>
     var productObj = {{ all_products["jawliner®-fitness-chewing-gum-try-package"] | json }};
     typeof productObj == "object" ? icartProductObj[6880871317641] = productObj : "";
-
-                        var provinceObj = "";
-                    </script>
+</script>
 <style>icart-div{display: none;}</style>
 <div class="icartFullcartContain" style="display:none"></div>
 <script>
