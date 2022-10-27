@@ -53,11 +53,7 @@
           <span class="filters-toolbar__product-count">{{ 'collections.general.items_with_count' | t: count: collection.products_count }}</span>
         </div>
       {% endif %}
-      {% if collection.description != blank %}
-        <div class="rte collection-description page-width">
-          {{ collection.description }}
-        </div>
-      {% endif %}
+
     {% else %}
       <div class="page-width">
         <div class="section-header text-center">
@@ -152,10 +148,17 @@
       {% when 4 %}
         {%- assign grid_item_width = 'small--one-half medium-up--one-quarter' -%}
       {% when 5 %}
-        {%- assign grid_item_width = 'small--one-half medium-up--one-fifth' -%}
+        {%- assign grid_item_width = 'small--one-half medium-up--one-fifth' -%} 
       {% endcase %}
 
       <ul class="grid grid--uniform{% if collection.products_count > 0 %} grid--view-items{% endif %}">
+          <li class="grid__item grid__item--{{section.id}} {{ grid_item_width }} + {{ grid_item_width }}">
+          {% if collection.description != blank %}
+            <div class="rte collection-description page-width">
+              {{ collection.description }}
+            </div>
+          {% endif %}
+        </li>
         {% for product in collection.products %}
           <li class="grid__item grid__item--{{section.id}} {{ grid_item_width }}">
             {% include 'product-card-grid', max_height: max_height %}
