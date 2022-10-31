@@ -606,6 +606,12 @@
         "disabled": false,
         "settings": {
         }
+      },
+      "16304872806d79912c": {
+        "type": "shopify:\/\/apps\/icart-cart-drawer-cart-upsell\/blocks\/icart-block\/e651bbc2-5760-47d8-a513-2aa6ee3a9aa7",
+        "disabled": false,
+        "settings": {
+        }
       }
     }
   },
@@ -736,9 +742,6 @@
         "article-template": {
           "type": "article-template",
           "settings": {
-            "blog_show_author": true,
-            "blog_show_date": true,
-            "show_share_buttons": true
           }
         },
         "product-template": {
