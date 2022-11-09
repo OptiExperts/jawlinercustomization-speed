@@ -920,6 +920,10 @@
       {% render 'page-footer.zipifypages', renderctx: 'thm', ocuapp: ocuapp %}
 {% render 'oneclickupsellapp-theme', oneclickupsellapp: oneclickupsellapp %}
 {% assign oneclickupsellapp = true %}
+
+<!-- **BEGIN** Hextom QAB Integration // Main Include - DO NOT MODIFY -->
+    {% render 'hextom_qab_main', product: product, customer: customer %}
+    <!-- **END** Hextom QAB Integration // Main Include - DO NOT MODIFY -->
 </body>
 </html>
 {%- endcapture -%}
