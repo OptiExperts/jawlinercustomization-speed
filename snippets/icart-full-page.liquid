@@ -1,0 +1,13 @@
+<script>
+    var productObj = {{ all_products["jawliner®-fitness-chewing-gum-try-package"] | json }};
+    typeof productObj == "object" ? icartProductObj[6880871317641] = productObj : "";
+</script>
+<style>icart-div{display: none;} .icartShopifyCartContent {display: none;}</style>
+<div class="icartFullcartContain" style="display:none"></div>
+<script>
+function icartScriptLoad(e){return new Promise(function(t,n){let r=document.createElement("script");r.src=e,r.id="icartFullCartMinJs",r.type="text/javascript",r.onError=n,r.async=false,r.onload=t,r.addEventListener("error",n),r.addEventListener("load",t),document.getElementsByTagName("head")[0].appendChild(r)})}
+icartScriptLoad("https://cdnicart.identixweb.com/react_build/icart.bundle.js")
+.then(() => { document.getElementsByClassName("icartFullcartContain")[0].style.display="block"; })
+.catch(() => { document.getElementsByClassName("icartShopifyCartContent")[0].style.visibility="unset"; document.getElementsByClassName("icartShopifyCartContent")[0].style.display="unset"; });
+</script>
+<link rel="stylesheet" id="icartFullCartMinCss" type="text/css" href="https://cdnicart.identixweb.com/assets/css/icart-fronted-cart.min.css" media="all">
