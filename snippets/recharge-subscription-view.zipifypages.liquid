@@ -1,5 +1,5 @@
 {%- comment -%}
-  Updated: 09/20/2022
+  Updated: 11/11/2022
   This file is system-generated and should not be modified
   We reserve the right to overwrite it at any moment to add improvements or new features so that customizations you made might be lost
   Please, read through this article to make sure that your customizations will be preserved: https://help.zipify.com/en/articles/877075-zipify-pages-advanced-work-with-buy-box-blocks
@@ -12,10 +12,10 @@
       </div>
     </div>
     <div class="zpa-offset-bottom-sm zpa-mobile-offset-bottom-xs">
-      <div class="default-styles-wrapper zpa-word-wrap disable-internal-link zp zps_ttl1blclassescape">zps_ttl1cont</div>
+      <div class="{% unless zp_bv_product_additional_header_title contains ' tsl-' or zp_bv_product_additional_header_title contains '"tsl-' or zp_bv_product_additional_header_title contains ' ts-' or zp_bv_product_additional_header_title contains '"ts-' %}default-styles-wrapper{% endunless %} zpa-word-wrap disable-internal-link zp zps_ttl1blclassescape">{{ zp_bv_product_additional_header_title }}</div>
     </div>
     <div class="zpa-offset-bottom-md zpa-tablet-offset-bottom-sm zpa-mobile-offset-bottom-xs">
-      <div class="default-styles-wrapper zpa-word-wrap disable-internal-link zp zps_txtblclassescape">zps_txtcont</div>
+      <div class="{% unless zp_bv_product_description contains ' tsl-' or zp_bv_product_description contains '"tsl-' or zp_bv_product_description contains ' ts-' or zp_bv_product_description contains '"ts-' %}default-styles-wrapper{% endunless %} zpa-word-wrap disable-internal-link zp zps_txtblclassescape">{{ zp_bv_product_description }}</div>
     </div>
     <div class="zpa-offset-bottom-md zpa-tablet-offset-bottom-sm zpa-mobile-offset-bottom-xs zp zps_imgblclassescape">
       <a role="button" data-zp-product-image-link>
@@ -27,10 +27,10 @@
         <span class="zpa-regular-price zpa-word-wrap zp zps_dcrt1classescape" {{ zp_product_price_attribute }}>{{ zp_sale_price | money }}</span>
       </div>{% if zp_unit_price_enabled %}<div class="zpa-offset-bottom-xs zp zps_dcrt2classescape{% unless zp_first_selected_variant.unit_price_measurement %} hidden{% endunless %}" data-zp-product-unit-price-wrapper><span data-zp-product-unit-price>{% if zp_first_selected_variant.unit_price_measurement %}{{ zp_first_selected_variant.unit_price | money }}{% endif %}</span><span> / </span><span data-zp-product-up-base-unit>{% if zp_first_selected_variant.unit_price_measurement %}{% if zp_first_selected_variant.unit_price_measurement.reference_value != 1 %}{{ zp_first_selected_variant.unit_price_measurement.reference_value }}{% endif %}{{ zp_first_selected_variant.unit_price_measurement.reference_unit }}{% endif %}</span></div>{% endif %}{% endif %}
       <div class="zpa-offset-bottom-xs">
-        <div class="zpa-inline-block default-styles-wrapper zpa-word-wrap disable-internal-link zp zps_ttl2blclassescape">zps_ttl2cont</div>
+        <div class="zpa-inline-block {% unless zp_bv_product_header_title contains ' tsl-' or zp_bv_product_header_title contains '"tsl-' or zp_bv_product_header_title contains ' ts-' or zp_bv_product_header_title contains '"ts-' %}default-styles-wrapper{% endunless %} zpa-word-wrap disable-internal-link zp zps_ttl2blclassescape">{{ zp_bv_product_header_title }}</div>
       </div>
       <div class="zpa-offset-bottom-sm zpa-mobile-offset-bottom-xs">
-        <div class="zpa-inline-block default-styles-wrapper zpa-word-wrap disable-internal-link zp zps_ttl3blclassescape">zps_ttl3cont</div>
+        <div class="zpa-inline-block {% unless zp_bv_product_static_compare_price contains ' tsl-' or zp_bv_product_static_compare_price contains '"tsl-' or zp_bv_product_static_compare_price contains ' ts-' or zp_bv_product_static_compare_price contains '"ts-' %}default-styles-wrapper{% endunless %} zpa-word-wrap disable-internal-link zp zps_ttl3blclassescape">{{ zp_bv_product_static_compare_price }}</div>
       </div>
       <div class="zpa-offset-bottom-md zpa-tablet-offset-bottom-sm zpa-mobile-offset-bottom-xs">{% if zp_include_product_button_main_classes %}{% assign zp_product_button_base_main_classes = "zpa-mobile-btn-size" %}{% else %}{% assign zp_product_button_base_main_classes = '' %}{% endif %}{% if zp_include_product_button_alignment_classes %}{% assign zp_product_button_base_alignment_classes = "zpa-text-center-sm" %}{% else %}{% assign zp_product_button_base_alignment_classes = '' %}{% endif %}{% if product.available %}
         <form class="{% if zp_integrate_with_bold_quantity_breaks == true %}shapp_qb_prod{% endif %}" method="post" enctype="multipart/form-data" data-zp-add-to-cart-form data-zp-link-type="zps_prdbtnltpescape" data-zp-product-url="{{ zp_redirect_product_url }}" data-productid="{{ product.id }}" data-zp-redirect-with-url-params="{{ zp_current_product_redirect_with_params }}"{% unless zp_enable_subscription_widget %} data-zp-disable-subscrptn-wdgt{% endunless %}>{% if zp_show_variants_selectors == true %}
