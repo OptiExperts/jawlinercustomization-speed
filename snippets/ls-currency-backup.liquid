@@ -3,13 +3,7 @@
 {%- endcomment -%}
 
 {%- assign defaultCurrency = shop.metafields.ls-settings.defaultCurrency -%}
-{%- if defaultCurrency.type == "json" -%}
-    {%- assign defaultCurrency = defaultCurrency.value -%}
-{%- endif -%}
 {%- assign targetCurrencies = shop.metafields.ls-settings.targetCurrencies -%}
-{%- if targetCurrencies.type == "json" -%}
-    {%- assign targetCurrencies = targetCurrencies.value -%}
-{%- endif -%}
 {%- assign currenciesCodes = targetCurrencies | map: 'code' -%}
 {%- assign currenciesCodes = defaultCurrency.code | split: "," | concat: currenciesCodes -%}
 {%- assign currencyCode = defaultCurrency.code -%}
