@@ -410,7 +410,7 @@
         "type": "featured-product",
         "settings": {
           "custom_liq": "",
-          "featured_product": "jawliner®-3-0-all-in-one-transformation-pack",
+          "featured_product": "jawliner-3-0-all-in-one-transformation-pack",
           "image_size": "medium",
           "show_quantity_selector": false,
           "show_variant_labels": true,
@@ -531,7 +531,6 @@
       },
       "1661892767b3828a82": {
         "type": "custom-faq",
-        "disabled": true,
         "blocks": {
           "28343669-24dd-484a-aeb9-e9862e4a336e": {
             "type": "header",
@@ -567,6 +566,7 @@
           "0d2ad9cf-b87a-43cb-a556-f0dc08271029",
           "d319bf11-829b-4de6-b26b-72e5efb6d9ef"
         ],
+        "disabled": true,
         "settings": {
         }
       }
@@ -592,24 +592,6 @@
       "10436698916776057164": {
         "type": "shopify:\/\/apps\/appstle-subscriptions\/blocks\/appstle-subscription-helper\/fe257d39-6f88-4f35-ab08-bd437e3aa94e",
         "disabled": false,
-        "settings": {
-        }
-      },
-      "15323590465973626552": {
-        "type": "shopify:\/\/apps\/translate-currency-langshop\/blocks\/langshop\/84899e01-2b29-42af-99d6-46d16daa2111",
-        "disabled": false,
-        "settings": {
-        }
-      },
-      "13305045807980328211": {
-        "type": "shopify:\/\/apps\/outsell-cross-sell-upsell\/blocks\/app-embed\/f17e198c-ea50-4593-b4a0-6a8c75266a2e",
-        "disabled": false,
-        "settings": {
-        }
-      },
-      "16304872806d79912c": {
-        "type": "shopify:\/\/apps\/icart-cart-drawer-cart-upsell\/blocks\/icart-block\/e651bbc2-5760-47d8-a513-2aa6ee3a9aa7",
-        "disabled": true,
         "settings": {
         }
       }
